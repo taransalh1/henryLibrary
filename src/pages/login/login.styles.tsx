@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 50,
     alignItems: "center",
-    padding: isDesktopOrLaptop ? 50 : 20,
+    padding: isDesktopOrLaptop ? 30 : 20,
     paddingVertical: 40,
     gap: 10,
     elevation: 10,
@@ -36,10 +36,12 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
   },
   signupContainer: {
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
     marginTop: 10,
+    textAlign: "center",
     lineHeight: 28,
-    gap: 5,
   },
 });

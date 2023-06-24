@@ -8,9 +8,10 @@ import { styles as pageStyles } from "./login.styles";
 import { Button, TextInput, useTheme, Text } from "react-native-paper";
 import { appColors } from "../../utilities/colorSchemes/appColors";
 import { useState } from "react";
-export const LoginPage = () => {
+export const LoginPage = ({ navigation }) => {
   const theme = useTheme();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
+  const [btnLoading, setbtnLoading] = useState(false);
   return (
     <View
       style={[
@@ -69,8 +70,12 @@ export const LoginPage = () => {
           <Button
             icon="arrow-right-circle"
             mode="elevated"
-            onPress={() => {}}
+            onPress={() => {
+              setbtnLoading(true);
+              navigation.navigate("dashboard", { name: "Jane" });
+            }}
             elevation={2}
+            loading={btnLoading}
             style={pageStyles.buttonStyle}
             labelStyle={{
               fontSize: 25,
@@ -87,12 +92,7 @@ export const LoginPage = () => {
               colors: { primary: "white", background: appColors.primaryGreen },
             }}
           >
-            <Text
-              style={[
-                theme.fonts.titleMedium,
-                { color: "#FFFFFF", fontSize: 18 },
-              ]}
-            >
+            <Text style={[theme.fonts.titleMedium, { color: "#FFFFFF" }]}>
               Login
             </Text>
           </Button>
@@ -101,7 +101,10 @@ export const LoginPage = () => {
             Don't have an account?{" "}
             <TouchableOpacity activeOpacity={0.5}>
               <Text
-                style={[theme.fonts.bodyLarge, { color: theme.colors.primary }]}
+                style={[
+                  theme.fonts.bodyMedium,
+                  { color: theme.colors.primary },
+                ]}
               >
                 Sign Up
               </Text>

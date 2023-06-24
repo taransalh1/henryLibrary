@@ -10,14 +10,12 @@ import {
   MD3DarkTheme,
   PaperProvider,
   adaptNavigationTheme,
-  configureFonts,
 } from "react-native-paper";
 import merge from "deepmerge";
 import lightThemeColors from "./src/utilities/colorSchemes/themeLight.json";
 import darkThemeColors from "./src/utilities/colorSchemes/themeDark.json";
-import fonts from "./src/utilities/fonts.json";
+import { fonts } from "./src/utilities/fonts";
 import { Platform, TextInput, useColorScheme, Text } from "react-native";
-import TextWithDefaultProps from "./src/utilities/ITextProps";
 import {
   useFonts,
   Jost_300Light,
