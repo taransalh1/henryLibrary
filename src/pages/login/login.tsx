@@ -1,8 +1,16 @@
-import { SafeAreaView, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  SafeAreaView,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { styles as pageStyles } from "./login.styles";
-import { MD3Theme, useTheme } from "react-native-paper";
+import { Button, TextInput, useTheme, Text } from "react-native-paper";
+import { appColors } from "../../utilities/colorSchemes/appColors";
+import { useState } from "react";
 export const LoginPage = () => {
   const theme = useTheme();
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
   return (
     <View
       style={[
@@ -11,7 +19,9 @@ export const LoginPage = () => {
       ]}
     >
       <SafeAreaView style={[pageStyles.container]}>
-        <View
+        <KeyboardAvoidingView
+          behavior="padding"
+          enabled
           style={[
             pageStyles.boxStyles,
             { backgroundColor: theme.colors.secondaryContainer },
@@ -19,13 +29,85 @@ export const LoginPage = () => {
         >
           <Text
             style={[
-              theme.fonts.displayMedium,
+              theme.fonts.displaySmall,
               { color: theme.colors.onSecondaryContainer },
             ]}
           >
             Miller Family Library
           </Text>
-        </View>
+          <TextInput
+            label="Email"
+            mode="outlined"
+            theme={{ colors: { onSurfaceVariant: appColors.placeHolderColor } }}
+            onChangeText={(text) => {}}
+            textColor={appColors.textColor}
+            outlineColor={appColors.textOutlineColor}
+            style={[pageStyles.inputStyle, { marginTop: 25 }]}
+          />
+          <TextInput
+            label="Password"
+            mode="outlined"
+            secureTextEntry={secureTextEntry}
+            textColor={appColors.textColor}
+            theme={{ colors: { onSurfaceVariant: appColors.placeHolderColor } }}
+            onChangeText={(text) => {}}
+            right={
+              <TextInput.Icon
+                icon="eye"
+                style={{ marginTop: 10, height: 60 }}
+                color={appColors.placeHolderColor}
+                onPress={() => {
+                  setSecureTextEntry(!secureTextEntry);
+                  return false;
+                }}
+              />
+            }
+            outlineColor={appColors.textOutlineColor}
+            style={[pageStyles.inputStyle]}
+          />
+
+          <Button
+            icon="arrow-right-circle"
+            mode="elevated"
+            onPress={() => {}}
+            elevation={2}
+            style={pageStyles.buttonStyle}
+            labelStyle={{
+              fontSize: 25,
+              color: theme.colors.primary,
+            }}
+            contentStyle={[
+              {
+                flexDirection: "row-reverse",
+                paddingHorizontal: 20,
+                paddingVertical: 5,
+              },
+            ]}
+            theme={{
+              colors: { primary: "white", background: appColors.primaryGreen },
+            }}
+          >
+            <Text
+              style={[
+                theme.fonts.titleMedium,
+                { color: "#FFFFFF", fontSize: 18 },
+              ]}
+            >
+              Login
+            </Text>
+          </Button>
+
+          <Text style={pageStyles.signupContainer}>
+            Don't have an account?{" "}
+            <TouchableOpacity activeOpacity={0.5}>
+              <Text
+                style={[theme.fonts.bodyLarge, { color: theme.colors.primary }]}
+              >
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </Text>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     </View>
   );

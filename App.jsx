@@ -10,12 +10,24 @@ import {
   MD3DarkTheme,
   PaperProvider,
   adaptNavigationTheme,
+  configureFonts,
 } from "react-native-paper";
 import merge from "deepmerge";
-import * as lightThemeColors from "./src/utilities/colorSchemes/themeLight.json";
-import * as darkThemeColors from "./src/utilities/colorSchemes/themeDark.json";
-import { getColorSchemeNormalized } from "./src/utilities/normalizeColorScheme";
-import { useColorScheme } from "react-native";
+import lightThemeColors from "./src/utilities/colorSchemes/themeLight.json";
+import darkThemeColors from "./src/utilities/colorSchemes/themeDark.json";
+import fonts from "./src/utilities/fonts.json";
+import { Platform, TextInput, useColorScheme, Text } from "react-native";
+import TextWithDefaultProps from "./src/utilities/ITextProps";
+import {
+  useFonts,
+  Jost_300Light,
+  Jost_400Regular,
+  Jost_500Medium,
+  Jost_200ExtraLight,
+  Jost_600SemiBold,
+  Jost_700Bold,
+  Jost_100Thin,
+} from "@expo-google-fonts/jost";
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
   reactNavigationLight: NavigationDefaultTheme,
   reactNavigationDark: NavigationDarkTheme,
@@ -25,10 +37,44 @@ const CombinedDefaultTheme = merge(MD3LightTheme, LightTheme);
 const CombinedDarkTheme = merge(MD3DarkTheme, DarkTheme);
 export default function App() {
   const colorScheme = useColorScheme();
-  const theme =
-    colorScheme === "dark"
-      ? { ...CombinedDarkTheme, colors: darkThemeColors.colors }
-      : { ...CombinedDefaultTheme, colors: lightThemeColors.colors };
+  Text.defaultProps = Text.defaultProps || {};
+  TextInput.defaultProps = TextInput.defaultProps || {};
+  Text.defaultProps.allowFontScaling = false;
+  TextInput.defaultProps.allowFontScaling = false;
+  let [fontsLoaded] = useFonts({
+    Jost_300Light,
+    Jost_400Regular,
+    Jost_500Medium,
+    Jost_200ExtraLight,
+    Jost_600SemiBold,
+    Jost_700Bold,
+    Jost_100Thin,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+  let theme;
+  if (Platform.OS === "web") {
+    theme = {
+      ...CombinedDefaultTheme,
+      colors: lightThemeColors.colors,
+      fonts: fonts,
+    };
+  } else {
+    theme =
+      colorScheme === "dark"
+        ? {
+            ...CombinedDarkTheme,
+            colors: darkThemeColors.colors,
+            fonts: fonts,
+          }
+        : {
+            ...CombinedDefaultTheme,
+            colors: lightThemeColors.colors,
+            fonts: fonts,
+          };
+  }
 
   return (
     <PaperProvider theme={theme}>

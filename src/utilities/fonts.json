@@ -1,0 +1,112 @@
+{
+  "displayLarge": {
+    "fontFamily": "Jost_700Bold",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 64,
+    "fontSize": 57
+  },
+  "displayMedium": {
+    "fontFamily": "Jost_600SemiBold",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 52,
+    "fontSize": 45
+  },
+  "displaySmall": {
+    "fontFamily": "Jost_500Medium",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 44,
+    "fontSize": 36
+  },
+  "headlineLarge": {
+    "fontFamily": "Jost_600SemiBold",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 40,
+    "fontSize": 32
+  },
+  "headlineMedium": {
+    "fontFamily": "Jost_500Medium",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 36,
+    "fontSize": 28
+  },
+  "headlineSmall": {
+    "fontFamily": "Jost_400Regular",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 32,
+    "fontSize": 24
+  },
+  "titleLarge": {
+    "fontFamily": "Jost_500Medium",
+    "letterSpacing": 0,
+    "fontWeight": "400",
+    "lineHeight": 28,
+    "fontSize": 22
+  },
+  "titleMedium": {
+    "fontFamily": "Jost_500Medium",
+    "letterSpacing": 0.5,
+    "fontWeight": "500",
+    "lineHeight": 22,
+    "fontSize": 16
+  },
+  "titleSmall": {
+    "fontFamily": "Jost_300Light",
+    "letterSpacing": 0.1,
+    "fontWeight": "500",
+    "lineHeight": 20,
+    "fontSize": 14
+  },
+  "labelLarge": {
+    "fontFamily": "Jost_600SemiBold",
+    "letterSpacing": 0.1,
+    "fontWeight": "500",
+    "lineHeight": 20,
+    "fontSize": 14
+  },
+  "labelMedium": {
+    "fontFamily": "Jost_500Medium",
+    "letterSpacing": 0.5,
+    "fontWeight": "500",
+    "lineHeight": 16,
+    "fontSize": 12
+  },
+  "labelSmall": {
+    "fontFamily": "Jost_400Regular",
+    "letterSpacing": 0.5,
+    "fontWeight": "500",
+    "lineHeight": 16,
+    "fontSize": 11
+  },
+  "bodyLarge": {
+    "fontFamily": "Jost_600SemiBold",
+    "letterSpacing": 0.15,
+    "fontWeight": "400",
+    "lineHeight": 24,
+    "fontSize": 16
+  },
+  "bodyMedium": {
+    "fontFamily": "Jost_500Medium",
+    "letterSpacing": 0.25,
+    "fontWeight": "400",
+    "lineHeight": 20,
+    "fontSize": 14
+  },
+  "bodySmall": {
+    "fontFamily": "Jost_400Regular",
+    "letterSpacing": 0.4,
+    "fontWeight": "400",
+    "lineHeight": 16,
+    "fontSize": 12
+  },
+  "default": {
+    "fontFamily": "Jost_400Regular",
+    "letterSpacing": 0,
+    "fontWeight": "400"
+  }
+}
