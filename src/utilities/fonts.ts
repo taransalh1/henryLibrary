@@ -1,18 +1,4 @@
-import { PixelRatio, Dimensions } from "react-native";
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const isDesktopOrLaptop = Dimensions.get("window").width >= 720;
-function normalize(size, based = "width") {
-  const widthBaseScale = isDesktopOrLaptop
-    ? SCREEN_WIDTH / 1280
-    : SCREEN_WIDTH / 414;
-  const heightBaseScale = isDesktopOrLaptop
-    ? SCREEN_WIDTH / 720
-    : SCREEN_WIDTH / 896;
-
-  const newSize =
-    based === "height" ? size * heightBaseScale : size * widthBaseScale;
-  return Math.round(PixelRatio.roundToNearestPixel(newSize));
-}
+import { normalize } from "./normalizeFonts";
 export const fonts = {
   displayLarge: {
     fontFamily: "Jost_700Bold",

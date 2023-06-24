@@ -1,6 +1,6 @@
-import { StyleSheet, useColorScheme } from "react-native";
+import { StyleSheet } from "react-native";
 import { Dimensions } from "react-native";
-const isDesktopOrLaptop = Dimensions.get("window").width >= 1224;
+const isDesktopOrLaptop = Dimensions.get("window").width >= 728;
 export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
@@ -42,6 +42,5 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     marginTop: 10,
     textAlign: "center",
-    lineHeight: 28,
   },
 });

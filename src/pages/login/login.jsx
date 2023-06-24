@@ -99,16 +99,7 @@ export const LoginPage = ({ navigation }) => {
 
           <Text style={pageStyles.signupContainer}>
             Don't have an account?{" "}
-            <TouchableOpacity activeOpacity={0.5}>
-              <Text
-                style={[
-                  theme.fonts.bodyMedium,
-                  { color: theme.colors.primary },
-                ]}
-              >
-                Sign Up
-              </Text>
-            </TouchableOpacity>
+            <Text style={[{ color: theme.colors.primary }]}>Sign Up</Text>
           </Text>
         </KeyboardAvoidingView>
       </SafeAreaView>
